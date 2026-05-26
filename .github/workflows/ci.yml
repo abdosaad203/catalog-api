@@ -1,0 +1,24 @@
+name: Catalog API CI
+
+on:
+  push:
+    branches:
+      - main
+      - stage
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  call-reusable-workflow:
+    uses: abdosaad203/reusable-backend-ci/.github/workflows/backend-ci.yml@main
+
+    with:
+      dotnet-version: '10.0.x'
+      project-path: 'Catalog.API/Catalog.API.csproj'
+      test-path: 'Catalog.API.Tests/Catalog.API.Tests.csproj'
+      run-tests: true
+      image-name: 'catalog-api'
