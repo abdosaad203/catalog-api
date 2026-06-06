@@ -33,6 +33,6 @@ USER appuser
 
 EXPOSE 8081
 
-ENV ASPNETCORE_URLS=http://+:8081
+ENV ASPNETCORE_URLS=http://+:8080
 
 ENTRYPOINT ["dotnet", "Catalog.API.dll"]
